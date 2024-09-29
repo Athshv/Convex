@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convex - Design Collaboration Platform</title>
+    <link rel="stylesheet" href="n1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Convex Logo" class="logo-img">
+            <p class="tagline">Where Creativity Expands</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Upload</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">Version Control</a></li>
+                <li><a href="#">Design Board</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="design-board">
+            <h2>Design Board</h2>
+            <div id="board" class="board">
+                <div class="design-element" id="element1" draggable="true">Element 1</div>
+                <div class="design-element" id="element2" draggable="true">Element 2</div>
+            </div>
+            <button onclick="addNewElement()">Add New Element</button>
+        </section>
+
+        <section class="file-sharing">
+            <h2>Share Design Files</h2>
+            <input type="file" id="uploadFile" multiple>
+            <button onclick="uploadFile()">Upload</button>
+            <div id="fileList"></div>
+        </section>
+
+        <section class="version-control">
+            <h2>Version Control</h2>
+            <p>Manage different versions of your design assets. Track changes and revert if necessary.</p>
+            <button onclick="showVersionHistory()">View Version History</button>
+            <div id="versionHistory"></div>
+        </section>
+
+        <section class="feedback">
+            <h2>Real-Time Feedback</h2>
+            <textarea id="feedbackInput" placeholder="Leave feedback................"></textarea>
+            <button onclick="submitFeedback()">Submit</button>
+            <div id="feedbackSection"></div>
+            <hr>
+            <hr>
+            <hr>
+            <div id="qrcode" style="margin: 20px;"></div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Convex - Design Collaboration Platform</p>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "http://192.168.56.1:5500/n1.html#", // Replace with your actual URL
+                width: 128,
+                height: 128,
+            });
+        });
+    </script>
+
+    <script src="n1.js"></script>
+</body>
+
+</html>
